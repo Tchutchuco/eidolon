@@ -46,7 +46,7 @@ class ListingsViewModelTests: QuickSpec {
 
 
         it("paginates to the second page to retrieve all three sale artworks") {
-            subject = ListingsViewModel(selectedIndexSignal: RACSignal.`return`(0), showDetails: { _ in }, presentModal: { _ in }, pageSize: 2, logSync: { _ in})
+            subject = ListingsViewModel(selectedIndexSignal: RACSignal.`return`(0), showDetails: { _ in }, presentModal: { _ in }, syncInterval: 1, pageSize: 2, logSync: { _ in})
 
             kioskWaitUntil { done -> Void in
                 subject.updatedContentsSignal.take(1).subscribeCompleted {
